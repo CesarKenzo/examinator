@@ -18,6 +18,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './components/home/home.component';
+import { TakeExamComponent } from './components/take-exam/take-exam.component';
+import { CreateQuestionComponent } from './components/create-question/create-question.component';
 
 
 @NgModule({
@@ -26,6 +28,8 @@ import { HomeComponent } from './components/home/home.component';
     HeaderComponent,
     FooterComponent,
     HomeComponent,
+    TakeExamComponent,
+    CreateQuestionComponent,
   ],
   imports: [
     BrowserModule,
