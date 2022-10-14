@@ -8,22 +8,22 @@
   content: "";
   display: table;
   clear: both;
-  max-width: 1200px;
+  max-width: 100%;
 }
 
 .example-card {
-  max-width: 400px;
+  max-width: 100%;
 }
 
 .internal-card {
-  width: 350px;
-  height: 150px;
+  width: 100%;
+  height: 15%;
   background-color: rgb(180, 180, 180);
 }
 
 .internal-card-profile {
-  width: 350px;
-  height: 300px;
+  width: 100%;
+  height: 20%;
   background-color: rgb(180, 180, 180);
 }
   
