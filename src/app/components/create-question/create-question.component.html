@@ -1,1 +1,82 @@
-<p>create-question works!</p>
+<section class="container">
+    <header>
+        <h2>Adicione uma nova Questão:</h2>
+    </header>
+    <form>
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Questão</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="question"
+                name="question"
+                placeholder="Escreva a pergunta"
+                [(ngModel)]="question.question"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Alternativa 1</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="alt1"
+                name="alt1"
+                placeholder="Escreva uma Alternativa"
+                [(ngModel)]="question.alt1"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Alternativa 2</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="alt2"
+                name="alt2"
+                placeholder="Escreva uma Alternativa"
+                [(ngModel)]="question.alt2"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Alternativa 3</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="alt3"
+                name="alt3"
+                placeholder="Escreva uma Alternativa"
+                [(ngModel)]="question.alt3"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Alternativa 4</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="alt4"
+                name="alt4"
+                placeholder="Escreva uma Alternativa"
+                [(ngModel)]="question.alt4"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+
+        <div class="acoes">
+            <button mat-button (click)="createQuestion()" class="botao">Salvar</button>
+            <button mat-button (click)="cancelar()" class="botao">Cancelar</button>
+        </div>
+    </form>
+</section>

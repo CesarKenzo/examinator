@@ -1,0 +1,40 @@
+<tr><br/></tr>
+<section class="container">
+    <header class="header d-flex">
+      <h2 class="ff-inter">Questões cadastradas</h2>
+      <button mat-button routerLink="/createQuestion" class="botao">Adicionar Questões</button>
+    </header>
+    <div class="mural" *ngIf="listQuestion.length > 0, else noQuestions">    
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <th>ID</th>
+                    <th>Questão</th>
+                    <th>Alternativa 1</th>
+                    <th>Alternativa 2</th>
+                    <th>Alternativa 3</th>
+                    <th>Alternativa 4</th>
+                    <th>Resposta</th>
+                </tr>
+                <tr *ngFor="let question of listQuestion">
+                    <th>{{question.id}}</th>
+                    <th>{{question.question}}</th>
+                    <th>{{question.alt1}}</th>
+                    <th>{{question.alt2}}</th>
+                    <th>{{question.alt3}}</th>
+                    <th>{{question.alt4}}</th>
+                    <th>{{question.answer}}</th>
+                </tr> 
+            </table>
+        </div>
+    </div>
+  </section>
+  <ng-template #noQuestions>
+    <div class="ff-inter no-questions">
+      <p>Ainda não existem questões cadastradas!</p>
+    </div>
+  </ng-template>
+
+  <div>
+    
+</div>

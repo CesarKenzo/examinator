@@ -1,0 +1,16 @@
+.acoes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  
+  .botao {
+    margin: 5px;
+    margin-top: 70px;
+    width: 200px;
+  }
+
+.example-full-width {
+    width: 100%;
+}
