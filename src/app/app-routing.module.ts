@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { CreateExamComponent } from './components/create-exam/create-exam.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { HomeComponent } from './components/home/home.component';
@@ -31,6 +32,10 @@ const routes: Routes = [
   {
     path: 'listQuestion',
     component: ListQuestionComponent
+  },
+  {
+    path: 'adminPage',
+    component: AdminPageComponent
   },
 ];
 
