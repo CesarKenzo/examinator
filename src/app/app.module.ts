@@ -27,6 +27,7 @@ import { TakeExamComponent } from './components/take-exam/take-exam.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { CreateExamComponent } from './components/create-exam/create-exam.component';
 import { ListQuestionComponent } from './components/list-question/list-question.component';
+import { AdminPageComponent } from './components/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +38,8 @@ import { ListQuestionComponent } from './components/list-question/list-question.
     TakeExamComponent,
     CreateQuestionComponent,
     CreateExamComponent,
-    ListQuestionComponent
+    ListQuestionComponent,
+    AdminPageComponent
   ],
   imports: [
     BrowserModule,
