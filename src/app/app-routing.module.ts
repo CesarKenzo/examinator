@@ -5,12 +5,14 @@ import { CreateExamComponent } from './components/create-exam/create-exam.compon
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListQuestionComponent } from './components/list-question/list-question.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { TakeExamComponent } from './components/take-exam/take-exam.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'home',
+    redirectTo: 'login',
     pathMatch: 'full'
   },
   {
@@ -36,6 +38,14 @@ const routes: Routes = [
   {
     path: 'adminPage',
     component: AdminPageComponent
+  },
+  {
+    path: 'signUp',
+    component: SignUpComponent
+  },
+  {
+    path: 'login',
+    component: LoginComponent
   },
 ];
 
