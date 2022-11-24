@@ -28,6 +28,10 @@ import { CreateQuestionComponent } from './components/create-question/create-que
 import { CreateExamComponent } from './components/create-exam/create-exam.component';
 import { ListQuestionComponent } from './components/list-question/list-question.component';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignUpComponent } from './components/sign-up/sign-up.component';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+
 
 @NgModule({
   declarations: [
@@ -39,7 +43,9 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
     CreateQuestionComponent,
     CreateExamComponent,
     ListQuestionComponent,
-    AdminPageComponent
+    AdminPageComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,
@@ -57,6 +63,7 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
+    MatSnackBarModule,
     NgbModule,
     FormsModule,
     HttpClientModule
