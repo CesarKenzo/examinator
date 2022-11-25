@@ -1,1 +1,74 @@
-<p>create-exam works!</p>
+<section class="container">
+    <header>
+        <h2>Adicione uma nova Prova:</h2>
+    </header>
+    <form>
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Tema/Matéria</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="subject"
+                name="subject"
+                placeholder="Tema/Matéria"
+                [(ngModel)]="exam.subject"
+              >
+            </mat-form-field></td>
+        </tr></table>
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Data Limite</mat-label>
+              <input matInput
+                type="date"
+                class="input"
+                id="dueTo"
+                name="dueTo"
+                placeholder="Data Limite"
+                [(ngModel)]="exam.dueTo"
+              >
+            </mat-form-field></td>
+        </tr></table>
+        <br/>
+        <div class="mural" *ngIf="listQuestion.length > 0">    
+            <div class="mural">
+                <table style="width:100%">
+                    <tr>
+                        <th>ID</th>
+                        <th>Questão</th>
+                        <th>Alternativa 1</th>
+                        <th>Alternativa 2</th>
+                        <th>Alternativa 3</th>
+                        <th>Alternativa 4</th>
+                        <th>Resposta</th>
+                    </tr>
+                    <tr *ngFor="let question of listQuestion">
+                        <th>{{question.id}}</th>
+                        <th>{{question.question}}</th>
+                        <th>{{question.alt1}}</th>
+                        <th>{{question.alt2}}</th>
+                        <th>{{question.alt3}}</th>
+                        <th>{{question.alt4}}</th>
+                        <th>{{question.answer}}</th>
+                    </tr> 
+                </table>
+            </div>
+        </div>
+        <br/><br/>
+        <div class="selectBox">
+            <select multiple name="selectedTechs"[(ngModel)]="exam.questions">
+                <option *ngFor="let question of listQuestion" [ngValue]="question">
+                     {{ question.question }}
+                </option>
+            </select> 
+        </div>
+        
+        
+        
+        <br/>
+        <div class="acoes">
+            <button mat-button (click)="createExam()" class="botao">Salvar</button>
+            <button mat-button (click)="cancelar()" class="botao">Cancelar</button>
+        </div>
+    </form>
+</section>

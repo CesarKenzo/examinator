@@ -1,0 +1,82 @@
+<section class="container">
+    <header>
+        <h2>Adicione uma nova Questão:</h2>
+    </header>
+    <form>
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Nome</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="name"
+                name="name"
+                placeholder="Nome"
+                [(ngModel)]="user.name"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Email</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="email"
+                name="email"
+                placeholder="Email"
+                [(ngModel)]="user.email"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Username</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="username"
+                name="username"
+                placeholder="Username"
+                [(ngModel)]="user.username"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Senha</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="pwd"
+                name="pwd"
+                placeholder="Senha"
+                [(ngModel)]="user.password"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+        <table class="example-full-width" cellspacing="0"><tr>
+            <td><mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Flag Admin (true ou false)</mat-label>
+              <input matInput
+                type="textarea"
+                class="input"
+                id="flAdminTrue"
+                name="flAdmin"
+                placeholder="Usuário Administrador"
+                [(ngModel)]="user.flAdmin"
+              >
+            </mat-form-field></td>
+        </tr></table>
+
+
+        <div class="acoes">
+            <button mat-button (click)="createUser()" class="botao">Salvar</button>
+            <button mat-button (click)="cancelar()" class="botao">Cancelar</button>
+        </div>
+    </form>
+</section>

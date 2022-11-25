@@ -4,7 +4,7 @@
     </header>
     <form>
       <label for="question">Questão</label>
-      Texto da Questão
+      {{question.question}}
       
       <label for="modelo-alternativa">Selecione a resposta:</label>
       <div class="container-radio">
@@ -19,7 +19,7 @@
             <div class="custom-radio">
               <span></span>
             </div>
-            <span>Alternativa 1</span>
+            <span>{{question.alt1}}</span>
           </label>
         </div>
   
@@ -34,7 +34,7 @@
             <div class="custom-radio">
               <span></span>
             </div>
-            <span>Alternativa 2</span>
+            <span>{{question.alt2}}</span>
           </label>
         </div>
   
@@ -49,7 +49,7 @@
             <div class="custom-radio">
               <span></span>
             </div>
-            <span>Alternativa 3</span>
+            <span>{{question.alt3}}</span>
           </label>
         </div>
 
@@ -64,13 +64,13 @@
             <div class="custom-radio">
               <span></span>
             </div>
-            <span>Alternativa 4</span>
+            <span>{{question.alt4}}</span>
           </label>
         </div>
       </div>
       <div class="acoes">
         <button mat-raised-button disabled color="primary" class="botao">Voltar</button>
-        <button mat-raised-button color="primary" class="botao">Próxima</button>
+        <button mat-raised-button color="primary" class="botao" (click)="nextQuestion()">Próxima</button>
       </div>
     </form>
   </section>

@@ -31,6 +31,8 @@ import { AdminPageComponent } from './components/admin-page/admin-page.component
 import { LoginComponent } from './components/login/login.component';
 import { SignUpComponent } from './components/sign-up/sign-up.component';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+import { ListUserComponent } from './components/list-user/list-user.component';
+import { CreateUserComponent } from './components/create-user/create-user.component';
 
 
 @NgModule({
@@ -45,7 +47,9 @@ import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
     ListQuestionComponent,
     AdminPageComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    ListUserComponent,
+    CreateUserComponent
   ],
   imports: [
     BrowserModule,

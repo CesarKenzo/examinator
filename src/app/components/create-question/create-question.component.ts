@@ -11,7 +11,6 @@ import { QuestionService } from '../service/question.service';
 export class CreateQuestionComponent implements OnInit {
 
   question: Question = {
-
     question: '',
     alt1: '',
     alt2: '',
