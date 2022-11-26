@@ -1,0 +1,62 @@
+<section class="container">
+    <header>
+        <h2>Adicione uma nova Tarefa:</h2>
+    </header>
+    <form>
+        <br/>
+        <div class="mural" *ngIf="listExam.length > 0">    
+            <div class="mural">
+                <table style="width:100%">
+                    <tr>
+                        <th>ID</th>
+                        <th>Tema/Matéria</th>
+                    </tr>
+                    <tr *ngFor="let exam of listExam">
+                        <th>{{exam.id}}</th>
+                        <th>{{exam.subject}}</th>
+                    </tr> 
+                </table>
+            </div>
+        </div>
+        <br/><br/>
+        <div class="selectBox">
+            <select name="selectedTechs"[(ngModel)]="task.examId">
+                <option *ngFor="let exam of listExam" [ngValue]="exam.id">
+                     {{ exam.id }} || {{exam.subject}}
+                </option>
+            </select> 
+        </div>
+
+        <br/>
+        <div class="mural" *ngIf="listUser.length > 0">    
+            <div class="mural">
+                <table style="width:100%">
+                    <tr>
+                        <th>ID</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                    </tr>
+                    <tr *ngFor="let user of listUser">
+                        <th>{{user.id}}</th>
+                        <th>{{user.name}}</th>
+                        <th>{{user.username}}</th>
+                    </tr> 
+                </table>
+            </div>
+        </div>
+        <br/><br/>
+        <div class="selectBox">
+            <select multiple name="selectedTechs"[(ngModel)]="task.userId">
+                <option *ngFor="let user of listUser" [ngValue]="user.id">
+                     {{ user.name }} || {{user.username}}
+                </option>
+            </select> 
+        </div>
+        
+        <br/>
+        <div class="acoes">
+            <button mat-button (click)="createTask()" class="botao">Salvar</button>
+            <button mat-button (click)="cancelar()" class="botao">Cancelar</button>
+        </div>
+    </form>
+</section>

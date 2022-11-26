@@ -1,0 +1,36 @@
+<tr><br/></tr>
+<section class="container">
+    <header class="header d-flex">
+      <h2 class="ff-inter">Questões cadastradas</h2>
+      <button mat-button routerLink="/home" class="botao">Adicionar Usuário</button>
+    </header>
+    <div class="mural" *ngIf="listUser.length > 0, else noQuestions">    
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <th>ID</th>
+                    <th>Nome</th>
+                    <th>Email</th>
+                    <th>Username</th>
+                    <th>Flag Admin</th>
+                </tr>
+                <tr *ngFor="let user of listUser">
+                    <th>{{user.id}}</th>
+                    <th>{{user.name}}</th>
+                    <th>{{user.email}}</th>
+                    <th>{{user.username}}</th>
+                    <th>{{user.flAdmin}}</th>
+                </tr> 
+            </table>
+        </div>
+    </div>
+  </section>
+  <ng-template #noQuestions>
+    <div class="ff-inter no-questions">
+      <p>Ainda não existem questões cadastradas!</p>
+    </div>
+  </ng-template>
+
+  <div>
+    
+</div>
