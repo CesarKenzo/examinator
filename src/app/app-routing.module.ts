@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminPageComponent } from './components/admin-page/admin-page.component';
 import { CreateExamComponent } from './components/create-exam/create-exam.component';
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListQuestionComponent } from './components/list-question/list-question.component';
@@ -61,6 +62,10 @@ const routes: Routes = [
   {
     path: 'createExam',
     component: CreateExamComponent
+  },
+  {
+    path: 'createTask',
+    component: CreateTaskComponent
   },
 ];
 

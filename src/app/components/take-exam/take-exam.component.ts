@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Exam } from '../model/exam';
 import { Question } from '../model/question';
+import { Task } from '../model/task';
 import { ExamService } from '../service/exam.service';
 import { QuestionService } from '../service/question.service';
+import { TaskService } from '../service/task.service';
 
 @Component({
   selector: 'app-take-exam',
@@ -12,6 +14,12 @@ import { QuestionService } from '../service/question.service';
 export class TakeExamComponent implements OnInit {
 
   cont: number = 0;
+
+  task: Task = {
+    grade: 0,
+    userId: [],
+    examId: 0
+  }
 
   exam: Exam = {
     numberOfQuestions: 0,
@@ -30,15 +38,22 @@ export class TakeExamComponent implements OnInit {
   }
 
   constructor(
-    private service: ExamService,
-    private qService: QuestionService
+    private eService: ExamService,
+    private qService: QuestionService,
+    private tService: TaskService
   ) { }
 
   ngOnInit(): void {
-    this.service.buscarPorId(2).subscribe((exam) => {
-      this.exam = exam
-      if(this.exam != null && this.exam.questions.length > 0) {
-        this.question = this.exam.questions[this.cont]
+    this.tService.buscarPorId(1).subscribe((task) => {
+      this.task = task
+
+      if(this.task.examId != null && this.task.examId != 0) {
+        this.eService.buscarPorId(this.task.examId).subscribe((exam) => {
+          this.exam = exam
+          if(this.exam.questions != null && this.exam.questions.length > 0) {
+            this.question = exam.questions[this.cont]
+          }
+        })
       }
     })
   }
@@ -47,6 +62,8 @@ export class TakeExamComponent implements OnInit {
     if(this.exam.questions.length < this.cont) {
       this.cont++
     }
+
+    let temp;
 
     this.qService.buscarPorId(this.exam.questions[this.cont].id!).subscribe((question) => {
       //this.question = question

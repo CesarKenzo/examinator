@@ -19,6 +19,8 @@ export class CreateQuestionComponent implements OnInit {
     answer: '',
   }
 
+  alternativas: string[] =['A', 'B', 'C', 'D']
+
   constructor(
     private service: QuestionService,
     private router: Router

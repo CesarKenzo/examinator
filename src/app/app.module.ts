@@ -14,6 +14,7 @@ import {MatProgressBarModule} from '@angular/material/progress-bar';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatTableModule} from '@angular/material/table';
+import { MatDividerModule } from '@angular/material/divider';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -33,6 +34,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { CreateTaskComponent } from './components/create-task/create-task.component';
 
 
 @NgModule({
@@ -49,7 +51,8 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     LoginComponent,
     SignUpComponent,
     ListUserComponent,
-    CreateUserComponent
+    CreateUserComponent,
+    CreateTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -68,6 +71,7 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
     MatInputModule,
     MatTableModule,
     MatSnackBarModule,
+    MatDividerModule,
     NgbModule,
     FormsModule,
     HttpClientModule
