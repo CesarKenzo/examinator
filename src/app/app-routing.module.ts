@@ -8,20 +8,22 @@ import { CreateUserComponent } from './components/create-user/create-user.compon
 import { HomeComponent } from './components/home/home.component';
 import { ListQuestionComponent } from './components/list-question/list-question.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
-import { LoginComponent } from './components/login/login.component';
-import { UserService } from './components/service/user.service';
-import { SignUpComponent } from './components/sign-up/sign-up.component';
+import { LiveListComponent } from './components/live-list/live-list.component';
 import { TakeExamComponent } from './components/take-exam/take-exam.component';
 
 const routes: Routes = [
   {
     path: '',
-    redirectTo: 'login',
+    redirectTo: 'live-list',
     pathMatch: 'full'
   },
   {
     path: 'home',
     component: HomeComponent
+  },
+  { 
+    path: 'live-list', 
+    component: LiveListComponent 
   },
   {
     path: 'takeExam', 
@@ -34,14 +36,6 @@ const routes: Routes = [
   {
     path: 'adminPage',
     component: AdminPageComponent
-  },
-  {
-    path: 'signUp',
-    component: SignUpComponent
-  },
-  {
-    path: 'login',
-    component: LoginComponent
   },
   {
     path: 'listUser',

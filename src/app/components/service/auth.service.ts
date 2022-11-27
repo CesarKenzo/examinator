@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { loggedUserKey } from 'src/app/global-variable';
 
 import { User } from '../model/user';
 
@@ -6,7 +8,9 @@ import { User } from '../model/user';
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService{
+
+  constructor(private router: Router) { }
 
   public loginResponse?: User;
 
@@ -14,8 +18,14 @@ export class AuthService {
     this.loginResponse = undefined;
   }
 
-  public isAuthenticated(): boolean {
-    return Boolean(this.loginResponse);
+  public isAuthenticated(): boolean {  
+    return (sessionStorage.getItem(loggedUserKey) != null) 
+   
+    /*
+    if(sessionStorage.getItem(loggedUserKey) == null && sessionStorage.getItem(loggedUserKey) == '0') {
+      this.router.navigate(['/live-list'])
+    }
+    */
   }
 
 }

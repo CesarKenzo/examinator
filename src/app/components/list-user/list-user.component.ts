@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { User } from '../model/user';
+import { AuthService } from '../service/auth.service';
 import { UserService } from '../service/user.service';
 
 @Component({
@@ -12,13 +14,20 @@ export class ListUserComponent implements OnInit {
   listUser: User[] = [];
 
   constructor(
-    private service: UserService 
+    private service: UserService, 
+    private authService: AuthService, 
+    private router: Router 
   ) { }
 
   ngOnInit(): void {
-    this.service.list().subscribe((listUser) => {
-      this.listUser = listUser
-    })
+    if(this.authService.isAuthenticated()) {
+      this.service.list().subscribe((listUser) => {
+        this.listUser = listUser
+      })
+    } else {
+      this.router.navigate(['/live-list'])
+    }
+    
   }
 
 }
