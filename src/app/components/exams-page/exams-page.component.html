@@ -1,0 +1,31 @@
+<tr><br/></tr>
+<section class="container">
+    <header class="header d-flex">
+      <h2 class="ff-inter" style="text-align: center;">Suas Tarefas</h2>
+    </header>
+    <div class="mural" *ngIf="examList.length > 0, else noQuestions">    
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <th>ID</th>
+                    <th>Tema/Matéria</th>
+                    <th>Data Limite</th>
+                    <th>Num. Questões</th>
+                </tr>
+                <tr *ngFor="let exam of examList">
+                    <th>{{exam.id}}</th>
+                    <th>{{exam.subject}}</th>
+                    <th>{{exam.dueTo}}</th>
+                    <th>{{exam.numberOfQuestions}}</th>
+                </tr> 
+            </table>
+        </div>
+    </div>
+  </section>
+  <ng-template #noQuestions>
+    <div class="ff-inter no-questions">
+      <p>Não existem Provas Cadastradas!</p>
+    </div>
+  </ng-template>
+  <div>
+</div>

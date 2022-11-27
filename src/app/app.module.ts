@@ -35,6 +35,8 @@ import { ListUserComponent } from './components/list-user/list-user.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { LiveListComponent } from './components/live-list/live-list.component';
+import { ExamsPageComponent } from './components/exams-page/exams-page.component';
+import { TaskPageComponent } from './components/task-page/task-page.component';
 
 
 @NgModule({
@@ -50,7 +52,9 @@ import { LiveListComponent } from './components/live-list/live-list.component';
     ListUserComponent,
     CreateUserComponent,
     CreateTaskComponent,
-    LiveListComponent
+    LiveListComponent,
+    ExamsPageComponent,
+    TaskPageComponent
   ],
   imports: [
     BrowserModule,
