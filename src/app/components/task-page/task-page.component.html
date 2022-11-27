@@ -1,0 +1,34 @@
+<tr><br/></tr>
+<section class="container">
+    <header class="header d-flex">
+      <h2 class="ff-inter" style="text-align: center;">Suas Tarefas</h2>
+    </header>
+    <div class="mural" *ngIf="taskList.length > 0, else noQuestions">    
+        <div>
+            <table style="width:100%">
+                <tr>
+                    <th>ID</th>
+                    <th>ID Prova</th>
+                    <th>Respostas do Usuário</th>
+                    <th>Nota</th>
+                    <th>ID Usuário</th>
+                </tr>
+                <tr *ngFor="let task of taskList">
+                    <th>{{task.id}}</th>
+                    <th>{{task.examId}}</th>
+                    <th>{{task.userAnswers}}</th>
+                    <th>{{task.grade!/10}}</th>
+                    <th>{{task.userId}}</th>
+                </tr> 
+            </table>
+        </div>
+    </div>
+  </section>
+  <ng-template #noQuestions>
+    <div class="ff-inter no-questions">
+      <p>Não existem Tarefas para realizar!</p>
+    </div>
+  </ng-template>
+  <div>
+</div>
+
