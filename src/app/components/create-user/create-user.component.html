@@ -16,7 +16,6 @@
               >
             </mat-form-field></td>
         </tr></table>
-
         <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Email</mat-label>
@@ -30,7 +29,6 @@
               >
             </mat-form-field></td>
         </tr></table>
-
         <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Username</mat-label>
@@ -44,7 +42,6 @@
               >
             </mat-form-field></td>
         </tr></table>
-
         <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Senha</mat-label>
@@ -58,22 +55,16 @@
               >
             </mat-form-field></td>
         </tr></table>
-
-        <table class="example-full-width" cellspacing="0"><tr>
-            <td><mat-form-field class="example-full-width" appearance="fill">
-              <mat-label>Flag Admin (true ou false)</mat-label>
-              <input matInput
-                type="textarea"
-                class="input"
-                id="flAdminTrue"
-                name="flAdmin"
-                placeholder="Usuário Administrador"
-                [(ngModel)]="user.flAdmin"
-              >
-            </mat-form-field></td>
-        </tr></table>
-
-
+        <div class="selectBox" style="text-align: center;">
+          <mat-label>Nível de Usuário</mat-label>
+          <br/>
+          <select name="selectedAnswer"[(ngModel)]="user.userDesc">
+              <option *ngFor="let option of userDescriptions" [ngValue]="option">
+                   {{option}}
+              </option>
+          </select> 
+        </div>
+        <br/><br/>
         <div class="acoes">
             <button mat-button (click)="createUser()" class="botao">Salvar</button>
             <button mat-button (click)="cancelar()" class="botao">Cancelar</button>

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Question } from '../model/question';
 import { Router } from '@angular/router'
 import { QuestionService } from '../service/question.service';
+import { AuthService } from '../service/auth.service';
 
 @Component({
   selector: 'app-create-question',
@@ -23,13 +24,16 @@ export class CreateQuestionComponent implements OnInit {
 
   constructor(
     private service: QuestionService,
+    private authService: AuthService,
     private router: Router
   ) { }
 
   ngOnInit(): void {
+    if(!this.authService.isAuthenticated()) {
+      this.router.navigate(['/live-list'])
+    }
   }
 
-  
   createQuestion() {
     this.service.criar(this.question).subscribe(() => {
       this.router.navigate(['/listQuestion'])

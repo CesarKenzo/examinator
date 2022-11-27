@@ -76,12 +76,12 @@
       <div class="selectBox">
         <mat-label>Resposta</mat-label>
         <br/>
-        <select name="selectedTechs"[(ngModel)]="question.answer">
-            <option *ngFor="let option of alternativas" [ngValue]="question.answer">
+        <select name="selectedAnswer"[(ngModel)]="question.answer">
+            <option *ngFor="let option of alternativas" [ngValue]="option">
                  {{option}}
             </option>
         </select> 
-    </div>
+      </div>
 
     <div class="acoes">
         <button mat-button (click)="createQuestion()" class="botao">Salvar</button>
