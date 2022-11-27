@@ -3,77 +3,84 @@
       <h2>Prova</h2>
     </header>
     <form id="exam-form">
-      <div *ngFor="let question of exam.questions">
-        <label for="question">Questão</label>
-        <br/>
-        {{question.question}}
-        <br/><br/>
-        <label for="modelo-alternativa">Selecione a resposta:</label>
-        <div class="container-radio">
-          <div class="radio-modelo">
-            <label for="modelo-alternativa1">
-              <input
-                type="radio"
-                id="modelo-alternativa1"
-                value="modelo-alternativa"
-                name="alternativa-card"
-              >
-              <div class="custom-radio">
-                <span></span>
-              </div>
-              <span>{{question.alt1}}</span>
-            </label>
-          </div>
-          <div class="radio-modelo">
-            <label for="modelo-alternativa2">
-              <input
-                type="radio"
-                id="modelo-alternativa2"
-                value="modelo-alternativa"
-                name="alternativa-card"
-              >
-              <div class="custom-radio">
-                <span></span>
-              </div>
-              <span>{{question.alt2}}</span>
-            </label>
-          </div>
-          <div class="radio-modelo">
-            <label for="modelo-alternativa3">
-              <input
-                type="radio"
-                id="modelo-alternativa3"
-                value="modelo-alternativa"
-                name="alternativa-card"
-              >
-              <div class="custom-radio">
-                <span></span>
-              </div>
-              <span>{{question.alt3}}</span>
-            </label>
-          </div>
-          <div class="radio-modelo">
-            <label for="modelo-alternativa4">
-              <input
-                type="radio"
-                id="modelo-alternativa4"
-                value="modelo-alternativa"
-                name="alternativa-card"
-              >
-              <div class="custom-radio">
-                <span></span>
-              </div>
-              <span>{{question.alt4}}</span>
-            </label>
-          </div>
-          <br/>
-          <mat-divider></mat-divider>
-          <br/>
+      <label for="question">Questão</label>
+      <br/>
+      {{question.question}}
+      <br/><br/>
+      <label for="modelo-alternativa">Selecione a resposta:</label>
+      <div class="container-radio">
+        <div class="radio-modelo">
+          <label for="modelo-alternativa1">
+            <input
+              type="radio"
+              id="modelo-alternativa1"
+              value="A"
+              name="alternativa-card"
+              [(ngModel)]="selectedAnswer"
+            >
+            <div class="custom-radio">
+              <span></span>
+            </div>
+            <span>{{question.alt1}}</span>
+          </label>
         </div>
+        <div class="radio-modelo">
+          <label for="modelo-alternativa2">
+            <input
+              type="radio"
+              id="modelo-alternativa2"
+              value="B"
+              name="alternativa-card"
+              [(ngModel)]="selectedAnswer"
+            >
+            <div class="custom-radio">
+              <span></span>
+            </div>
+            <span>{{question.alt2}}</span>
+          </label>
+        </div>
+        <div class="radio-modelo">
+          <label for="modelo-alternativa3">
+            <input
+              type="radio"
+              id="modelo-alternativa3"
+              value="C"
+              name="alternativa-card"
+              [(ngModel)]="selectedAnswer"
+            >
+            <div class="custom-radio">
+              <span></span>
+            </div>
+            <span>{{question.alt3}}</span>
+          </label>
+        </div>
+        <div class="radio-modelo">
+          <label for="modelo-alternativa4">
+            <input
+              type="radio"
+              id="modelo-alternativa4"
+              value="D"
+              name="alternativa-card"
+              [(ngModel)]="selectedAnswer"
+            >
+            <div class="custom-radio">
+              <span></span>
+            </div>
+            <span>{{question.alt4}}</span>
+          </label>
+        </div>
+        <br/>
+        <mat-divider></mat-divider>
+        <br/>
       </div>
       <div class="acoes">
-        <button mat-raised-button disabled color="primary" class="botao">Voltar</button>
-        <button mat-raised-button color="primary" class="botao" (click)="nextQuestion()">Próxima</button>
+        <button mat-raised-button color="primary" class="botao" (click)="previousQuestion()">Anterior</button>
+        <div *ngIf="cont != exam.questions.length-1">
+          <button mat-raised-button color="primary" class="botao" (click)="nextQuestion()">Próxima</button>
+        </div>
+        <div *ngIf="cont == exam.questions.length-1">
+          <button mat-raised-button color="primary" class="botao" (click)="finishTask()">Finalizar</button>
+        </div>
       </div>
     </form>
   </section>

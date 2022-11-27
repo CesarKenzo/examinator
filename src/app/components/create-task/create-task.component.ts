@@ -18,7 +18,8 @@ export class CreateTaskComponent implements OnInit {
   task: Task = {
     grade: 0,
     userId: [],
-    examId: 0
+    examId: 0,
+    userAnswers: []
   }
 
   exam: Exam = {

@@ -14,8 +14,7 @@ import { AuthService } from '../service/auth.service';
 export class LiveListComponent implements OnInit {
 
   hide = true;
-  userDesc = '';
-
+  
   user: User = {
     id: 0,
     name: '',
