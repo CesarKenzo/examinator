@@ -5,11 +5,13 @@ import { CreateExamComponent } from './components/create-exam/create-exam.compon
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { ExamsPageComponent } from './components/exams-page/exams-page.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListQuestionComponent } from './components/list-question/list-question.component';
 import { ListUserComponent } from './components/list-user/list-user.component';
 import { LiveListComponent } from './components/live-list/live-list.component';
 import { TakeExamComponent } from './components/take-exam/take-exam.component';
+import { TaskPageComponent } from './components/task-page/task-page.component';
 
 const routes: Routes = [
   {
@@ -32,6 +34,10 @@ const routes: Routes = [
   {
     path: 'createExam',
     component: CreateExamComponent
+  },
+  {
+    path: 'examsPage',
+    component: ExamsPageComponent
   },
   {
     path: 'adminPage',
@@ -61,6 +67,10 @@ const routes: Routes = [
     path: 'createTask',
     component: CreateTaskComponent
   },
+  {
+    path: 'tasksPage',
+    component: TaskPageComponent
+  }
 ];
 
 @NgModule({
