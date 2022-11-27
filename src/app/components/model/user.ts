@@ -4,7 +4,7 @@ export interface User {
     email: string;
     username: string;
     password: string;
-    flAdmin: boolean;
+    userDesc: string;
     profile?: string;
     description?: string;
 }

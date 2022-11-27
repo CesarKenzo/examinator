@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { Exam } from '../model/exam';
 import { Question } from '../model/question';
 import { Task } from '../model/task';
+import { AuthService } from '../service/auth.service';
 import { ExamService } from '../service/exam.service';
 import { QuestionService } from '../service/question.service';
 import { TaskService } from '../service/task.service';
@@ -40,22 +42,29 @@ export class TakeExamComponent implements OnInit {
   constructor(
     private eService: ExamService,
     private qService: QuestionService,
-    private tService: TaskService
+    private tService: TaskService,
+    private authService: AuthService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
-    this.tService.buscarPorId(1).subscribe((task) => {
-      this.task = task
-
-      if(this.task.examId != null && this.task.examId != 0) {
-        this.eService.buscarPorId(this.task.examId).subscribe((exam) => {
-          this.exam = exam
-          if(this.exam.questions != null && this.exam.questions.length > 0) {
-            this.question = exam.questions[this.cont]
-          }
-        })
-      }
-    })
+    if(this.authService.isAuthenticated()){
+      this.tService.buscarPorId(1).subscribe((task) => {
+        this.task = task
+  
+        if(this.task.examId != null && this.task.examId != 0) {
+          this.eService.buscarPorId(this.task.examId).subscribe((exam) => {
+            this.exam = exam
+            if(this.exam.questions != null && this.exam.questions.length > 0) {
+              this.question = exam.questions[this.cont]
+            }
+          })
+        }
+      })
+    } else {
+      this.router.navigate(['/live-list'])
+    }
+    
   }
 
   nextQuestion() {

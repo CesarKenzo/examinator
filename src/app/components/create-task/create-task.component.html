@@ -20,13 +20,16 @@
         </div>
         <br/><br/>
         <div class="selectBox">
+            <mat-label>Prova</mat-label>
+            <br/>
             <select name="selectedTechs"[(ngModel)]="task.examId">
                 <option *ngFor="let exam of listExam" [ngValue]="exam.id">
                      {{ exam.id }} || {{exam.subject}}
                 </option>
             </select> 
         </div>
-
+        <br/><br/>
+        <mat-divider></mat-divider>
         <br/>
         <div class="mural" *ngIf="listUser.length > 0">    
             <div class="mural">
@@ -46,13 +49,14 @@
         </div>
         <br/><br/>
         <div class="selectBox">
+            <mat-label>Alunos</mat-label>
+            <br/>
             <select multiple name="selectedTechs"[(ngModel)]="task.userId">
                 <option *ngFor="let user of listUser" [ngValue]="user.id">
                      {{ user.name }} || {{user.username}}
                 </option>
             </select> 
         </div>
-        
         <br/>
         <div class="acoes">
             <button mat-button (click)="createTask()" class="botao">Salvar</button>
