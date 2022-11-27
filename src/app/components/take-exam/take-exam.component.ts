@@ -16,11 +16,14 @@ import { TaskService } from '../service/task.service';
 export class TakeExamComponent implements OnInit {
 
   cont: number = 0;
+  selectedAnswer: string = '';
+  answers: string[] = []
 
   task: Task = {
     grade: 0,
     userId: [],
-    examId: 0
+    examId: 0, 
+    userAnswers: []
   }
 
   exam: Exam = {
@@ -68,17 +71,41 @@ export class TakeExamComponent implements OnInit {
   }
 
   nextQuestion() {
-    if(this.exam.questions.length < this.cont) {
+    if(this.cont <= this.exam.questions.length - 1) {
+      if(this.selectedAnswer != '') {
+        this.answers[this.cont] = this.selectedAnswer
+      }
       this.cont++
+      this.question = this.exam.questions[this.cont]
+      this.selectedAnswer = ''
+    } 
+  }
+
+  previousQuestion() {
+    if(this.cont > 0) {
+      this.cont--
+      this.question = this.exam.questions[this.cont]
+    }
+  }
+
+  finishTask() {
+    if(this.selectedAnswer != '') {
+      this.answers[this.cont] = this.selectedAnswer
+      this.task.userAnswers = this.answers
     }
 
-    let temp;
+    var correctAnswers = 0;
+    for(let i = 0; i < this.exam.questions.length; i++) {
+      if(this.exam.questions[i].answer == this.answers[i]) {
+        correctAnswers++;
+      }
+    }
+    this.task.grade = correctAnswers/this.exam.questions.length * 100
 
-    this.qService.buscarPorId(this.exam.questions[this.cont].id!).subscribe((question) => {
-      //this.question = question
-      this.question = this.exam.questions[this.cont]
+    this.tService.editar(this.task).subscribe((task) => {
+      this.task =task
     })
-    
+    this.router.navigate(['/home'])
   }
 
 }
