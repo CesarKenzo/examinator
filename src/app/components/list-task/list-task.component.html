@@ -2,13 +2,19 @@
 <section class="container">
     <header class="header d-flex">
       <h2 class="ff-inter" style="text-align: center;">Suas Tarefas</h2>
+      <button mat-button routerLink="/createTask" class="botao">Adicionar Tarefas</button>
     </header>
+    <br/>
     <div *ngFor="let task of taskList">
       <mat-accordion>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
-            <mat-panel-title style="font-size: 18px;">{{task.title}}</mat-panel-title>
-            <mat-panel-description>Nota: {{task.grade!/10}}</mat-panel-description>
+            <mat-panel-title>
+              {{task.title}}
+            </mat-panel-title>
+            <mat-panel-description>
+              Nota: {{task.grade!/10}}
+            </mat-panel-description>
           </mat-expansion-panel-header>
           <br/><br/>
           <mat-card style="background-color:lightblue;">
@@ -18,19 +24,19 @@
             <br/>
             <mat-card-content>
               <div *ngFor="let question of task.exam.questions">
-                <mat-accordion *ngIf="!flAluno">
+                <mat-accordion>
                   <mat-expansion-panel>
                     <mat-expansion-panel-header>
-                      <mat-panel-title style="font-size: 16px;">{{question.question}}</mat-panel-title>
+                      <mat-panel-title style="font-size: 20px;">{{question.question}}</mat-panel-title>
                     </mat-expansion-panel-header>
-                    <div style="font-size: 14px; text-align: center;">
+                    <div style="font-size: 18px; text-align: center;">
                       Alternativas
                     </div>
-                    <div style="font-size: 14px;">A: &nbsp;&nbsp;{{question.alt1}}</div>
-                    <div style="font-size: 14px;">B: &nbsp;&nbsp;{{question.alt2}}</div>
-                    <div style="font-size: 14px;">C: &nbsp;&nbsp;{{question.alt3}}</div>
-                    <div style="font-size: 14px;">D: &nbsp;&nbsp;{{question.alt4}}</div>
-                    <div style="font-size: 14px;">Resp: &nbsp;&nbsp;{{question.answer}}</div>
+                    <div style="font-size: 16px;">A: &nbsp;&nbsp;{{question.alt1}}</div>
+                    <div style="font-size: 16px;">B: &nbsp;&nbsp;{{question.alt2}}</div>
+                    <div style="font-size: 16px;">C: &nbsp;&nbsp;{{question.alt3}}</div>
+                    <div style="font-size: 16px;">D: &nbsp;&nbsp;{{question.alt4}}</div>
+                    <div style="font-size: 16px;">Resp: &nbsp;&nbsp;{{question.answer}}</div>
                   </mat-expansion-panel>
                   <br/>
                 </mat-accordion>
@@ -48,4 +54,3 @@
   </ng-template>
   <div>
 </div>
-

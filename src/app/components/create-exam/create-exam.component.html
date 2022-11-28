@@ -1,8 +1,10 @@
 <section class="container">
+    <br/><br/>
     <header>
-        <h2>Adicione uma nova Prova:</h2>
+        <h2 style="text-align: center;">Adicione uma nova Prova:</h2>
     </header>
     <form>
+        <h2>Tema/Matéria</h2>
         <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Tema/Matéria</mat-label>
@@ -16,6 +18,10 @@
               >
             </mat-form-field></td>
         </tr></table>
+        <br/>
+        <mat-divider></mat-divider>
+        <br/>
+        <h2>Data Limite</h2>
         <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
               <mat-label>Data Limite</mat-label>
@@ -30,8 +36,28 @@
             </mat-form-field></td>
         </tr></table>
         <br/>
-        <div class="mural" *ngIf="listQuestion.length > 0">    
-            <div class="mural">
+        <mat-divider></mat-divider>
+        <br/>
+        <div class="selectBox">
+            <h2>Questões</h2>
+            <select multiple name="selectedTechs"[(ngModel)]="exam.questions">
+                <option *ngFor="let question of listQuestion" [ngValue]="question">
+                     {{ question.question }}
+                </option>
+            </select> 
+        </div> 
+        <br/>
+        <mat-divider></mat-divider>
+        <br/>
+        <mat-accordion>
+            <mat-expansion-panel>
+              <mat-expansion-panel-header>
+                <mat-panel-title>
+                    Lista de Questões
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <br/>
+              <div class="mural" *ngIf="listQuestion.length > 0">    
                 <table style="width:100%">
                     <tr>
                         <th>ID</th>
@@ -53,16 +79,8 @@
                     </tr> 
                 </table>
             </div>
-        </div>
-        <br/><br/>
-        <div class="selectBox">
-            <select multiple name="selectedTechs"[(ngModel)]="exam.questions">
-                <option *ngFor="let question of listQuestion" [ngValue]="question">
-                     {{ question.question }}
-                </option>
-            </select> 
-        </div> 
-        <br/>
+            </mat-expansion-panel>
+        </mat-accordion>
         <div class="acoes">
             <button mat-button (click)="createExam()" class="botao">Salvar</button>
             <button mat-button (click)="cancelar()" class="botao">Cancelar</button>

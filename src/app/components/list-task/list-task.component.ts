@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { loggedUserKey, loggedUserLevelKey } from 'src/app/global-variable';
+import { loggedUserKey } from 'src/app/global-variable';
 import { Exam } from '../model/exam';
 import { Task } from '../model/task';
 import { AuthService } from '../service/auth.service';
@@ -8,14 +8,13 @@ import { ExamService } from '../service/exam.service';
 import { TaskService } from '../service/task.service';
 import { UserService } from '../service/user.service';
 
-@Component({
-  selector: 'app-exams-page',
-  templateUrl: './exams-page.component.html',
-  styleUrls: ['./exams-page.component.css']
-})
-export class ExamsPageComponent implements OnInit {
 
-  flAluno: boolean = false;
+@Component({
+  selector: 'app-list-task',
+  templateUrl: './list-task.component.html',
+  styleUrls: ['./list-task.component.css']
+})
+export class ListTaskComponent implements OnInit {
 
   exam: Exam = {
     numberOfQuestions: 0,
@@ -45,18 +44,10 @@ export class ExamsPageComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authService.isAuthenticated()) {
-      this.eService.listar().subscribe((examList) => {
-        this.examList = examList
-      })
       this.tService.listar().subscribe((taskList) => {
         var userId = sessionStorage.getItem(loggedUserKey) 
-        this.taskList = taskList.filter(t => t.userId.includes(Number.parseInt(userId!)) && t.grade != null)
+        this.taskList = taskList
       })
-      if(sessionStorage.getItem(loggedUserLevelKey) == 'Aluno') {
-        this.flAluno = true;
-      } else {
-        this.flAluno = false;
-      }
     } else {
       this.router.navigate(['/live-list'])
     }

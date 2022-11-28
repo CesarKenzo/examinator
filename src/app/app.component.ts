@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { flLogged, loggedUserKey, loggedUserLevelKey } from './global-variable';
 
@@ -7,7 +7,7 @@ import { flLogged, loggedUserKey, loggedUserLevelKey } from './global-variable';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit, OnChanges {
   showFiller = false;
   Admin = false;
   Logado : boolean = false; 
@@ -17,6 +17,20 @@ export class AppComponent implements OnInit {
     private router: Router
   ) { 
     this.Logado = sessionStorage.getItem(loggedUserKey) == null ? false:true
+  }
+
+  ngOnChanges(changes: SimpleChanges): void {
+    if(sessionStorage.getItem(loggedUserKey) == null){
+      this.Logado = false 
+      this.Admin = false
+    } else {
+      this.Logado = true
+      if(sessionStorage.getItem(loggedUserLevelKey) == 'Administrador') {
+        this.Admin = true
+      } else {
+        this.Admin = false
+      }
+    }
   }
 
   ngOnInit(): void {

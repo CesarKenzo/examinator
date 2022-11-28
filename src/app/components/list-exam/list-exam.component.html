@@ -2,17 +2,21 @@
 <section class="container">
     <header class="header d-flex">
       <h2 class="ff-inter" style="text-align: center;">Suas Provas</h2>
+      <button mat-button routerLink="/createExam" class="botao">Adicionar Questões</button>
     </header>
+    <br/>
     <div *ngIf="examList.length > 0, else noQuestions">    
       <div *ngFor="let exam of examList">
         <mat-accordion>
           <mat-expansion-panel style="background-color:lightblue;">
             <mat-expansion-panel-header>
-              <mat-panel-title style="font-size: 20px;">{{exam.subject}}</mat-panel-title>
+              <mat-panel-title>
+                {{exam.subject}}
+              </mat-panel-title>
             </mat-expansion-panel-header>
             <br/><br/>
             <div *ngFor="let question of exam.questions">
-              <mat-accordion *ngIf="!flAluno">
+              <mat-accordion>
                 <mat-expansion-panel>
                   <mat-expansion-panel-header>
                     <mat-panel-title style="font-size: 20px;">{{question.question}}</mat-panel-title>
@@ -24,6 +28,7 @@
                   <div style="font-size: 16px;">B: &nbsp;&nbsp;{{question.alt2}}</div>
                   <div style="font-size: 16px;">C: &nbsp;&nbsp;{{question.alt3}}</div>
                   <div style="font-size: 16px;">D: &nbsp;&nbsp;{{question.alt4}}</div>
+                  <div style="font-size: 16px;">Resp: &nbsp;&nbsp;{{question.answer}}</div>
                 </mat-expansion-panel>
                 <br/>
               </mat-accordion>
