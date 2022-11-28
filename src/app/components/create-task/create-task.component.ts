@@ -15,20 +15,21 @@ import { AuthService } from '../service/auth.service';
 })
 export class CreateTaskComponent implements OnInit {
 
-  task: Task = {
-    grade: 0,
-    userId: [],
-    examId: 0,
-    userAnswers: []
-  }
-
   exam: Exam = {
     numberOfQuestions: 0,
     questions: [],
     subject: '',
     dueTo: new Date
   }
-  
+
+  task: Task = {
+    title: '',
+    grade: 0,
+    userId: [],
+    exam: this.exam,
+    userAnswers: []
+  }
+
   listExam: Exam[] = [];
   listUser: User[] = [];
 
@@ -56,11 +57,11 @@ export class CreateTaskComponent implements OnInit {
 
   createTask() {
     this.tService.criar(this.task).subscribe(() => {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/listTask'])
     })
   }
 
   cancelar() {
-    //this.router.navigate(['/listQuestion'])
+    this.router.navigate(['/listTask'])
   }
 }

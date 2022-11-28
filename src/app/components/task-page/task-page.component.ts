@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { loggedUserKey } from 'src/app/global-variable';
+import { loggedUserKey, loggedUserLevelKey } from 'src/app/global-variable';
 import { Exam } from '../model/exam';
 import { Task } from '../model/task';
 import { AuthService } from '../service/auth.service';
@@ -16,12 +16,7 @@ import { UserService } from '../service/user.service';
 })
 export class TaskPageComponent implements OnInit {
 
-  task: Task = {
-    grade: 0,
-    userId: [],
-    examId: 0, 
-    userAnswers: []
-  }
+  flAluno: boolean = false;
 
   exam: Exam = {
     numberOfQuestions: 0,
@@ -30,6 +25,14 @@ export class TaskPageComponent implements OnInit {
     dueTo: new Date
   }
 
+  task: Task = {
+    title: '',
+    grade: 0,
+    userId: [],
+    exam: this.exam, 
+    userAnswers: []
+  }
+  
   examList: Exam[] = []
   taskList: Task[] = []
 
@@ -47,6 +50,14 @@ export class TaskPageComponent implements OnInit {
         var userId = sessionStorage.getItem(loggedUserKey) 
         this.taskList = taskList.filter(t => t.userId.includes(Number.parseInt(userId!)) && t.grade != null)
       })
+      this.eService.listar().subscribe((examList) => {
+        this.examList = examList
+      })
+      if(sessionStorage.getItem(loggedUserLevelKey) == 'Aluno') {
+        this.flAluno = true;
+      } else {
+        this.flAluno = false;
+      }
     } else {
       this.router.navigate(['/live-list'])
     }

@@ -43,12 +43,12 @@ export class CreateExamComponent implements OnInit {
   createExam() {
     this.exam.numberOfQuestions = this.exam.questions.length
     this.eService.criar(this.exam).subscribe(() => {
-      this.router.navigate(['/home'])
+      this.router.navigate(['/listExam'])
     })
   }
 
   cancelar() {
-    //this.router.navigate(['/listQuestion'])
+    this.router.navigate(['/listExam'])
   }
 
 }
