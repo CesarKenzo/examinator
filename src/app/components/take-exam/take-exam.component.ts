@@ -19,18 +19,19 @@ export class TakeExamComponent implements OnInit {
   selectedAnswer: string = '';
   answers: string[] = []
 
-  task: Task = {
-    grade: 0,
-    userId: [],
-    examId: 0, 
-    userAnswers: []
-  }
-
   exam: Exam = {
     numberOfQuestions: 0,
     questions: [],
     subject: '',
     dueTo: new Date
+  }
+
+  task: Task = {
+    title: '',
+    grade: 0,
+    userId: [],
+    exam: this.exam, 
+    userAnswers: []
   }
 
   question: Question = {
@@ -55,8 +56,8 @@ export class TakeExamComponent implements OnInit {
       this.tService.buscarPorId(1).subscribe((task) => {
         this.task = task
   
-        if(this.task.examId != null && this.task.examId != 0) {
-          this.eService.buscarPorId(this.task.examId).subscribe((exam) => {
+        if(this.task.exam.id != null && this.task.exam.id != 0) {
+          this.eService.buscarPorId(this.task.exam.id).subscribe((exam) => {
             this.exam = exam
             if(this.exam.questions != null && this.exam.questions.length > 0) {
               this.question = exam.questions[this.cont]
