@@ -20,23 +20,29 @@
             Menu
         </button>
     </div>
-    <div class="sub-menu-items">
-        <button routerLink="/live-list" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button
+    <div class="sub-menu-items" *ngIf="Logado">
+        <button routerLink="/{{routeTask}}" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button
             style="background-color: #18181a; color:white;">
-            Perfil
+            Tarefas
         </button>
     </div>
-    <div class="sub-menu-items">
-        <button routerLink="/examsPage" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button
+    <div class="sub-menu-items" *ngIf="Logado">
+        <button routerLink="/{{routeExam}}" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button
             style="background-color: #18181a; color:white;">
             Provas
         </button>
     </div>
-    <div class="sub-menu-items" *ngIf="Admin">
-            <button routerLink="/adminPage" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button
-                style="background-color: #18181a; color:white;">
-                ADM
-            </button>
+    <div class="sub-menu-items" *ngIf="Logado && Professor">
+        <button routerLink="/listQuestion" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button
+            style="background-color: #18181a; color:white;">
+            Questões
+        </button>
+    </div>
+    <div class="sub-menu-items" *ngIf="Logado && Admin">
+        <button routerLink="/adminPage" routerLinkActive="active" ariaCurrentWhenActive="page" mat-raised-button
+            style="background-color: #18181a; color:white;">
+            ADM
+        </button>
     </div>
     <div class="sub-menu-items" *ngIf="Logado">
         <button (click)="logoff()" ariaCurrentWhenActive="page" mat-raised-button

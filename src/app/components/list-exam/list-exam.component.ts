@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { loggedUserKey } from 'src/app/global-variable';
+import { loggedUserKey, loggedUserLevelKey } from 'src/app/global-variable';
 import { Exam } from '../model/exam';
 import { Task } from '../model/task';
 import { AuthService } from '../service/auth.service';
@@ -14,6 +14,10 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./list-exam.component.css']
 })
 export class ListExamComponent implements OnInit {
+
+  profBackRoute: string = 'home';
+  adminBackRoute: string = 'adminPage';
+  backRoute: string = '';
 
   exam: Exam = {
     numberOfQuestions: 0,
@@ -46,6 +50,11 @@ export class ListExamComponent implements OnInit {
       this.eService.listar().subscribe((examList) => {
         this.examList = examList
       })
+      if(sessionStorage.getItem(loggedUserLevelKey) == 'Professor') {
+        this.backRoute = this.profBackRoute;
+      } else {
+        this.backRoute = this.adminBackRoute;
+      }
     } else {
       this.router.navigate(['/live-list'])
     }

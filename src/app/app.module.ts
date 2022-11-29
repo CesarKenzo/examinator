@@ -41,6 +41,9 @@ import {TaskPageComponent} from './components/task-page/task-page.component';
 import {ListExamComponent} from './components/list-exam/list-exam.component';
 import {ListTaskComponent} from './components/list-task/list-task.component';
 import { EditUserComponent } from './components/edit-user/edit-user.component';
+import { EditExamComponent } from './components/edit-exam/edit-exam.component';
+import { EditQuestionComponent } from './components/edit-question/edit-question.component';
+import { EditTaskComponent } from './components/edit-task/edit-task.component';
 
 
 @NgModule({
@@ -61,7 +64,10 @@ import { EditUserComponent } from './components/edit-user/edit-user.component';
     TaskPageComponent,
     ListExamComponent,
     ListTaskComponent,
-    EditUserComponent
+    EditUserComponent,
+    EditExamComponent,
+    EditQuestionComponent,
+    EditTaskComponent
   ],
   imports: [
     BrowserModule,
