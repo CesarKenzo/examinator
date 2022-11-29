@@ -2,7 +2,7 @@
 <section class="container">
     <header class="header d-flex">
       <h2 class="ff-inter" style="text-align: center;">Suas Provas</h2>
-      <button mat-button routerLink="/createExam" class="botao">Adicionar Questões</button>
+      <button mat-button routerLink="/createExam" class="botao">Adicionar Prova</button>
     </header>
     <br/>
     <div *ngIf="examList.length > 0, else noQuestions">    
@@ -11,6 +11,7 @@
           <mat-expansion-panel style="background-color:lightblue;">
             <mat-expansion-panel-header>
               <mat-panel-title>
+                <th><button mat-button routerLink="/editExam/{{exam.id}}"><mat-icon class="material-symbols-outlined" >edit</mat-icon></button></th>
                 {{exam.subject}}
               </mat-panel-title>
             </mat-expansion-panel-header>
@@ -37,6 +38,10 @@
         </mat-accordion>
         <br/>
       </div>
+    </div>
+    <br/>
+    <div style="text-align: center;">
+      <button mat-button routerLink="/{{backRoute}}" class="botao">Voltar</button>
     </div>
   </section>
   <ng-template #noQuestions>

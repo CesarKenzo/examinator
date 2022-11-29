@@ -1,13 +1,14 @@
 <tr><br/><br/><br/></tr>
 <section class="container">
     <header class="header d-flex">
-      <h2 class="ff-inter" style="text-align: center;">Questões cadastradas</h2>
-      <button mat-button routerLink="/home" class="botao">Adicionar Usuário</button>
+      <h2 class="ff-inter" style="text-align: center;">Usuários cadastrados</h2>
+      <button mat-button routerLink="/createUser" class="botao">Adicionar Usuário</button>
     </header>
     <div class="mural" *ngIf="listUser.length > 0, else noQuestions">    
         <div>
             <table style="width:100%">
                 <tr>
+                    <th></th>
                     <th>ID</th>
                     <th>Nome</th>
                     <th>Email</th>
@@ -15,6 +16,7 @@
                     <th>Nível de Usuário</th>
                 </tr>
                 <tr *ngFor="let user of listUser">
+                    <th><button mat-button routerLink="/editUser/{{user.id}}"><mat-icon class="material-symbols-outlined" >edit</mat-icon></button></th>
                     <th>{{user.id}}</th>
                     <th>{{user.name}}</th>
                     <th>{{user.email}}</th>
@@ -23,6 +25,10 @@
                 </tr> 
             </table>
         </div>
+    </div>
+    <br/>
+    <div style="text-align: center;">
+      <button mat-button routerLink="/{{backRoute}}" class="botao">Voltar</button>
     </div>
   </section>
   <ng-template #noQuestions>

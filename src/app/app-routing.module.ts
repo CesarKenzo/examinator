@@ -5,6 +5,10 @@ import { CreateExamComponent } from './components/create-exam/create-exam.compon
 import { CreateQuestionComponent } from './components/create-question/create-question.component';
 import { CreateTaskComponent } from './components/create-task/create-task.component';
 import { CreateUserComponent } from './components/create-user/create-user.component';
+import { EditExamComponent } from './components/edit-exam/edit-exam.component';
+import { EditQuestionComponent } from './components/edit-question/edit-question.component';
+import { EditTaskComponent } from './components/edit-task/edit-task.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 import { ExamsPageComponent } from './components/exams-page/exams-page.component';
 import { HomeComponent } from './components/home/home.component';
 import { ListExamComponent } from './components/list-exam/list-exam.component';
@@ -46,6 +50,10 @@ const routes: Routes = [
     component: ListUserComponent
   },
   {
+    path: 'editUser/:id',
+    component: EditUserComponent
+  },
+  {
     path: 'createQuestion',
     component: CreateQuestionComponent
   },
@@ -54,12 +62,20 @@ const routes: Routes = [
     component: ListQuestionComponent
   },
   {
+    path: 'editQuestion/:id',
+    component: EditQuestionComponent
+  },
+  {
     path: 'createExam',
     component: CreateExamComponent
   },
   {
     path: 'listExam',
     component: ListExamComponent
+  },
+  {
+    path: 'editExam/:id',
+    component: EditExamComponent
   },
   {
     path: 'examsPage',
@@ -72,6 +88,10 @@ const routes: Routes = [
   {
     path: 'listTask',
     component: ListTaskComponent
+  },
+  {
+    path: 'editTask/:id',
+    component: EditTaskComponent
   },
   {
     path: 'tasksPage',

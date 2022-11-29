@@ -10,9 +10,9 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <mat-panel-title>
+              <th><button mat-button routerLink="/editTask/{{task.id}}"><mat-icon class="material-symbols-outlined" >edit</mat-icon></button></th>
               {{task.title}}
             </mat-panel-title>
-            
           </mat-expansion-panel-header>
           <br/><br/>
           <mat-panel-description>
@@ -51,6 +51,10 @@
         </mat-expansion-panel>
         <br/>
       </mat-accordion>
+    </div>
+    <br/>
+    <div style="text-align: center;">
+      <button mat-button routerLink="/{{backRoute}}" class="botao">Voltar</button>
     </div>
   </section>
   <ng-template #noQuestions>

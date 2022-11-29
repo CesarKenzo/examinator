@@ -47,4 +47,20 @@ export class UserService {
   list(): Observable<User[]> {
     return this.httpClient.get<User[]>(this.API)
   }
+
+  editar(user: User): Observable<User> {
+    const url = `${this.API}/${user.id}`
+    return this.httpClient.put<User>(url, user)
+
+  }
+
+  excluir(id: number): Observable<User> {
+    const url = `${this.API}/${id}`
+    return this.httpClient.delete<User>(url)
+  }
+
+  buscarPorId(id: number): Observable<User> {
+    const url = `${this.API}/${id}`
+    return this.httpClient.get<User>(url)
+  }
 }
