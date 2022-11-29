@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class ExamService {
 
-  private readonly API = 'http://localhost:3000/exam'
+  //private readonly API = 'http://localhost:3000/exam'
+  private readonly API = 'https://examinator-db.herokuapp.com/exam'
 
   constructor(private http: HttpClient) { }
 

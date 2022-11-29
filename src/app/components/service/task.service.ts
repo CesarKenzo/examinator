@@ -8,7 +8,8 @@ import { Observable } from 'rxjs';
 })
 export class TaskService {
 
-  private readonly API = 'http://localhost:3000/task'
+  //private readonly API = 'http://localhost:3000/task'
+  private readonly API = 'https://examinator-db.herokuapp.com/task'
 
   constructor(private http: HttpClient) { }
 
