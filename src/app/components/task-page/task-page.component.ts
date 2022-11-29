@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { loggedUserKey, loggedUserLevelKey } from 'src/app/global-variable';
 import { Exam } from '../model/exam';
 import { Task } from '../model/task';
+import { User } from '../model/user';
 import { AuthService } from '../service/auth.service';
 import { ExamService } from '../service/exam.service';
 import { TaskService } from '../service/task.service';
@@ -33,8 +34,9 @@ export class TaskPageComponent implements OnInit {
     userAnswers: []
   }
   
-  examList: Exam[] = []
-  taskList: Task[] = []
+  examList: Exam[] = [];
+  taskList: Task[] = [];
+  userList: User[] = [];
 
   constructor(
     private authService: AuthService,
@@ -52,6 +54,9 @@ export class TaskPageComponent implements OnInit {
       })
       this.eService.listar().subscribe((examList) => {
         this.examList = examList
+      })
+      this.uService.list().subscribe((userList) => {
+        this.userList = userList
       })
       if(sessionStorage.getItem(loggedUserLevelKey) == 'Aluno') {
         this.flAluno = true;

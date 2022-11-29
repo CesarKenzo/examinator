@@ -30,7 +30,7 @@ const routes: Routes = [
     component: LiveListComponent 
   },
   {
-    path: 'takeExam', 
+    path: 'takeExam/:id', 
     component: TakeExamComponent
   }, 
   {

@@ -45,11 +45,13 @@
                         <th>ID</th>
                         <th>Name</th>
                         <th>Username</th>
+                        <th>Nível de Usuário</th>
                     </tr>
                     <tr *ngFor="let user of listUser">
                         <th>{{user.id}}</th>
                         <th>{{user.name}}</th>
                         <th>{{user.username}}</th>
+                        <th>{{user.userDesc}}</th>
                     </tr> 
                 </table>
                 </div>
