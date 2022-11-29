@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { loggedUserKey } from 'src/app/global-variable';
+import { loggedUserKey, loggedUserLevelKey } from 'src/app/global-variable';
 import { Exam } from '../model/exam';
 import { Task } from '../model/task';
 import { User } from '../model/user';
@@ -16,6 +16,10 @@ import { UserService } from '../service/user.service';
   styleUrls: ['./list-task.component.css']
 })
 export class ListTaskComponent implements OnInit {
+
+  profBackRoute: string = 'home';
+  adminBackRoute: string = 'adminPage';
+  backRoute: string = '';
 
   exam: Exam = {
     numberOfQuestions: 0,
@@ -53,6 +57,11 @@ export class ListTaskComponent implements OnInit {
       this.uService.list().subscribe((userList) => {
         this.userList = userList
       })
+      if(sessionStorage.getItem(loggedUserLevelKey) == 'Professor') {
+        this.backRoute = this.profBackRoute;
+      } else {
+        this.backRoute = this.adminBackRoute;
+      }
     } else {
       this.router.navigate(['/live-list'])
     }

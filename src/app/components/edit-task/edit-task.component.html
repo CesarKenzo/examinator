@@ -1,9 +1,10 @@
 <section class="container">
     <br/><br/>
     <header>
-        <h2 style="text-align: center;">Adicione uma nova Tarefa:</h2>
+        <h2 style="text-align: center;">Editar Tarefa:</h2>
     </header>
     <form>
+        <th style="float: right;"><button mat-button (click)="removerTask()"><mat-icon>delete</mat-icon></button></th>
         <h2>Título</h2>
         <table class="example-full-width" cellspacing="0"><tr>
             <td><mat-form-field class="example-full-width" appearance="fill">
@@ -96,7 +97,7 @@
         <br/><br/>
         <div class="acoes">
             <button mat-button (click)="cancelar()" class="botao">Cancelar</button>
-            <button mat-button (click)="createTask()" class="botao">Salvar</button>     
+            <button mat-button (click)="editTask()" class="botao">Salvar</button>     
         </div>
     </form>
 </section>

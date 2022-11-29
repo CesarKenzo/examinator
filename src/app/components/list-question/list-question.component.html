@@ -2,14 +2,17 @@
 <section class="container">
   <header class="header d-flex">
     <h2 class="ff-inter" style="text-align: center;">Questões cadastradas</h2>
-    <button mat-button routerLink="/createQuestion" class="botao">Adicionar Questões</button>
+    <button mat-button routerLink="/createQuestion" class="botao">Adicionar Questão</button>
   </header>
   <br/>
   <div *ngFor="let question of listQuestion">
     <mat-accordion>
       <mat-expansion-panel>
         <mat-expansion-panel-header>
-          <mat-panel-title style="font-size: 20px;">{{question.question}}</mat-panel-title>
+          <mat-panel-title style="font-size: 20px;">
+            <th><button mat-button routerLink="/editQuestion/{{question.id}}"><mat-icon class="material-symbols-outlined" >edit</mat-icon></button></th>
+            {{question.question}}
+          </mat-panel-title>
         </mat-expansion-panel-header>
         <div style="font-size: 18px; text-align: center;">
           Alternativas
@@ -22,6 +25,10 @@
       </mat-expansion-panel>
       <br/>
     </mat-accordion>
+  </div>
+  <br/>
+  <div style="text-align: center;">
+    <button mat-button routerLink="/{{backRoute}}" class="botao">Voltar</button>
   </div>
 </section>
 <ng-template #noQuestions>

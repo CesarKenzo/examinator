@@ -10,8 +10,18 @@ import { flLogged, loggedUserKey, loggedUserLevelKey } from './global-variable';
 export class AppComponent implements OnInit, OnChanges {
   showFiller = false;
   Admin = false;
+  Professor: boolean = false;
   Logado : boolean = false; 
   title = 'Exam-inator';
+
+  routeTaskProf: string = '/listTask';
+  routeExamProf: string = '/listExam';
+  
+  routeTaskStud: string = '/tasksPage';
+  routeExamStud: string = '/examsPage';
+
+  routeTask: string = '';
+  routeExam: string = ''
 
   constructor(
     private router: Router
@@ -43,6 +53,15 @@ export class AppComponent implements OnInit, OnChanges {
         this.Admin = true
       } else {
         this.Admin = false
+      }
+      if(sessionStorage.getItem(loggedUserLevelKey) == 'Professor' || sessionStorage.getItem(loggedUserLevelKey) == 'Administrador') {
+        this.Professor = true;
+        this.routeExam = this.routeExamProf;
+        this.routeTask = this.routeTaskProf
+      } else {
+        this.Professor = false;
+        this.routeExam = this.routeExamStud;
+        this.routeTask = this.routeTaskStud;
       }
     }
   }

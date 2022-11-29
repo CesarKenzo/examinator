@@ -14,6 +14,7 @@
           <mat-card style="background-color:lightblue;">
             <mat-card-title-group>
               <mat-card-title>{{task.exam.subject}}</mat-card-title>
+              <mat-card-subtitle>Suas Respostas: {{task.userAnswers}}</mat-card-subtitle>
             </mat-card-title-group>
             <br/>
             <mat-card-content>
@@ -39,6 +40,10 @@
           </mat-card>
         </mat-expansion-panel>
       </mat-accordion>
+    </div>
+    <br/>
+    <div style="text-align: center;">
+      <button mat-button routerLink="/home" class="botao">Voltar</button>
     </div>
   </section>
   <ng-template #noQuestions>
