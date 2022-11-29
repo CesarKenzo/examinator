@@ -12,11 +12,16 @@
             <mat-panel-title>
               {{task.title}}
             </mat-panel-title>
-            <mat-panel-description>
-              Nota: {{task.grade!/10}}
-            </mat-panel-description>
+            
           </mat-expansion-panel-header>
           <br/><br/>
+          <mat-panel-description>
+            <div *ngIf="task.userId[0] != null || task.userId.length > 0">
+              Aluno: {{userList[task.userId[0]-1].username}}
+            </div>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            Nota: {{task.grade!/10}}
+          </mat-panel-description>
           <mat-card style="background-color:lightblue;">
             <mat-card-title-group>
               <mat-card-title>{{task.exam.subject}}</mat-card-title>
@@ -44,6 +49,7 @@
             </mat-card-content>
           </mat-card>
         </mat-expansion-panel>
+        <br/>
       </mat-accordion>
     </div>
   </section>

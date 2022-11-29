@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Exam } from '../model/exam';
 import { Question } from '../model/question';
 import { Task } from '../model/task';
@@ -48,12 +48,14 @@ export class TakeExamComponent implements OnInit {
     private qService: QuestionService,
     private tService: TaskService,
     private authService: AuthService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute,
   ) { }
 
   ngOnInit(): void {
     if(this.authService.isAuthenticated()){
-      this.tService.buscarPorId(1).subscribe((task) => {
+      const id = this.route.snapshot.paramMap.get('id')
+      this.tService.buscarPorId(parseInt(id!)).subscribe((task) => {
         this.task = task
   
         if(this.task.exam.id != null && this.task.exam.id != 0) {

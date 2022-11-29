@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { loggedUserKey } from 'src/app/global-variable';
 import { Exam } from '../model/exam';
 import { Task } from '../model/task';
+import { User } from '../model/user';
 import { AuthService } from '../service/auth.service';
 import { ExamService } from '../service/exam.service';
 import { TaskService } from '../service/task.service';
@@ -33,6 +34,7 @@ export class ListTaskComponent implements OnInit {
 
   examList: Exam[] = []
   taskList: Task[] = []
+  userList: User[] = []
 
   constructor(
     private authService: AuthService,
@@ -47,6 +49,9 @@ export class ListTaskComponent implements OnInit {
       this.tService.listar().subscribe((taskList) => {
         var userId = sessionStorage.getItem(loggedUserKey) 
         this.taskList = taskList
+      })
+      this.uService.list().subscribe((userList) => {
+        this.userList = userList
       })
     } else {
       this.router.navigate(['/live-list'])

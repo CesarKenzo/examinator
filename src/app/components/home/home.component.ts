@@ -17,6 +17,16 @@ export class HomeComponent implements OnInit {
   value = 60;
   flProfessor: boolean = false;
 
+  routeTaskProf: string = '/listTask';
+  routeExamProf: string = '/listExam';
+  
+  routeTaskStud: string = '/tasksPage';
+  routeExamStud: string = '/examsPage';
+
+  routeTask: string = '';
+  routeExam: string = ''
+
+
   constructor(
     private authService: AuthService,
     private router: Router
@@ -24,10 +34,14 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
     if(this.authService.isAuthenticated()){
-      if(sessionStorage.getItem(loggedUserLevelKey) == 'Professor') {
+      if(sessionStorage.getItem(loggedUserLevelKey) == 'Professor' || sessionStorage.getItem(loggedUserLevelKey) == 'Administrador') {
         this.flProfessor = true;
+        this.routeExam = this.routeExamProf;
+        this.routeTask = this.routeTaskProf
       } else {
         this.flProfessor = false;
+        this.routeExam = this.routeExamStud;
+        this.routeTask = this.routeTaskStud;
       }
     } else {
       this.router.navigate(['/live-list'])
