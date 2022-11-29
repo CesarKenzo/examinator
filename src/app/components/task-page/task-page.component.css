@@ -32,3 +32,7 @@
   tr:nth-child(even) {
     background-color: #dddddd;
   }
+
+  .botao{
+    text-align: center;
+  }

@@ -56,9 +56,15 @@ export class CreateTaskComponent implements OnInit {
   }
 
   createTask() {
-    this.tService.criar(this.task).subscribe(() => {
-      this.router.navigate(['/listTask'])
-    })
+    let temp = this.task.userId
+    for(let x = 0; x < temp.length; x++) {
+      this.task.userId = []
+      this.task.userId.push(temp[x])
+      this.tService.criar(this.task).subscribe(() => {
+        this.router.navigate(['/listTask'])
+      })
+    }
+    
   }
 
   cancelar() {

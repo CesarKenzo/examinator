@@ -40,6 +40,7 @@ import {ExamsPageComponent} from './components/exams-page/exams-page.component';
 import {TaskPageComponent} from './components/task-page/task-page.component';
 import {ListExamComponent} from './components/list-exam/list-exam.component';
 import {ListTaskComponent} from './components/list-task/list-task.component';
+import { EditUserComponent } from './components/edit-user/edit-user.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import {ListTaskComponent} from './components/list-task/list-task.component';
     ExamsPageComponent,
     TaskPageComponent,
     ListExamComponent,
-    ListTaskComponent
+    ListTaskComponent,
+    EditUserComponent
   ],
   imports: [
     BrowserModule,
