@@ -7,8 +7,6 @@ Trabalho da disciplina de GPTI em Angular e Node
 <li> Felipe Monteiro Costa Couto </li>
 <li> Henrique Mateus Tavares </li>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.4.
-
 # Informações para execução em Ambiente Local
 ## Development server
 
